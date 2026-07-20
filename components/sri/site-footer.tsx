@@ -19,7 +19,7 @@ export function SiteFooter() {
     .filter((s): s is NonNullable<typeof s> => Boolean(s))
 
   return (
-    <footer className="bg-steel text-steel-foreground">
+    <footer className="bg-steel text-steel-foreground pb-20 sm:pb-0">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-4">
           <div className="lg:col-span-1">

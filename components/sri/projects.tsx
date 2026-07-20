@@ -5,6 +5,22 @@ import { Stagger, StaggerItem } from './reveal'
 
 const projects = [
   {
+    img: '/images/real/site-work-2.jpeg',
+    alt: 'SRI Cutting Technologies operator cutting reinforced concrete barrier on flyover with heavy diamond wall saw',
+    tag: 'Wall Sawing',
+    title: 'High-Altitude Flyover Parapet Wall Sawing',
+    location: 'Bridge & Flyover Infrastructure',
+    desc: 'Heavy-duty hydraulic wall saw slicing through densely reinforced concrete bridge parapet with water suppression and zero structural vibration.',
+  },
+  {
+    img: '/images/real/site-work-1.jpeg',
+    alt: 'Precision concrete core and wire saw cutting inside a submerged water trench',
+    tag: 'Wet Site Core & Wire',
+    title: 'Submerged Trench Core & Wire Cutting',
+    location: 'Infrastructure & Deep Trench Work',
+    desc: 'Executing high-precision diamond cutting in submerged and wet site conditions where standard machinery cannot operate safely.',
+  },
+  {
     img: '/images/real/project-1.jpeg',
     alt: 'SRI Cutting Technologies operator performing diamond core drilling in an RCC slab',
     tag: 'Core Cutting',

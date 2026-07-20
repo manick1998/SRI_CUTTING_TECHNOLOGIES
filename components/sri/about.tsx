@@ -14,19 +14,28 @@ export function About() {
     <section id="about" className="scroll-mt-20 bg-background py-20 sm:py-28">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
         <Reveal direction="right">
-          <div className="relative">
+          <div className="relative grid grid-cols-2 gap-4 pb-8 sm:gap-6">
             <div className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
+              <Image
+                src="/images/real/site-work-2.jpeg"
+                alt="SRI Cutting Technologies operator performing wall saw cutting on flyover infrastructure"
+                width={600}
+                height={750}
+                className="h-full w-full object-cover aspect-[4/5] hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative mt-8 overflow-hidden rounded-3xl border border-border shadow-lift sm:mt-12">
               <Image
                 src="/images/real/project-1.jpeg"
                 alt="SRI Cutting Technologies operator carrying out diamond core drilling on site"
-                width={720}
-                height={820}
-                className="h-full w-full object-cover"
+                width={600}
+                height={750}
+                className="h-full w-full object-cover aspect-[4/5] hover:scale-105 transition-transform duration-500"
               />
             </div>
-            <div className="absolute -bottom-6 -right-2 flex items-center gap-3 rounded-2xl border border-border bg-card p-4 shadow-lift sm:-right-6">
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary"><Target className="h-5 w-5" /></span>
-              <div><p className="font-display text-xl font-bold leading-none">On-site</p><p className="text-xs text-muted-foreground">cutting expertise</p></div>
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-3.5 rounded-2xl border border-border bg-card/95 px-6 py-4 shadow-2xl backdrop-blur-md">
+              <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary/15 text-primary"><Target className="h-6 w-6" /></span>
+              <div><p className="font-display text-xl font-black leading-none text-foreground">100% On-Site</p><p className="text-xs font-semibold text-primary uppercase tracking-wider">Diamond Cutting Expertise</p></div>
             </div>
           </div>
         </Reveal>

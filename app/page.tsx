@@ -4,6 +4,7 @@ import { TrustBadges } from '@/components/sri/trust-badges'
 import { About } from '@/components/sri/about'
 import { WhyChoose } from '@/components/sri/why-choose'
 import { Services } from '@/components/sri/services'
+import { Videos } from '@/components/sri/videos'
 import { Industries } from '@/components/sri/industries'
 import { Process } from '@/components/sri/process'
 import { Equipment } from '@/components/sri/equipment'
@@ -29,6 +30,7 @@ export default function Page() {
         <Founder />
         <WhyChoose />
         <Services />
+        <Videos />
         <Industries />
         <Process />
         <Equipment />

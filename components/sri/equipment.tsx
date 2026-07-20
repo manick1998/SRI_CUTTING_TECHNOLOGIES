@@ -45,22 +45,32 @@ export function Equipment() {
         </div>
 
         <Reveal direction="left">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-lift">
-            <Image
-              src="/images/wire-saw-equipment.png"
-              alt="Advanced diamond wire saw machinery cutting a large concrete structure"
-              width={720}
-              height={860}
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-2xl border border-white/15 bg-steel/70 p-4 backdrop-blur-md">
-              <div>
-                <p className="font-display text-lg font-bold">Diamond Wire System</p>
-                <p className="text-xs text-white/60">Unlimited depth &middot; zero vibration</p>
+          <div className="relative grid gap-4 sm:grid-cols-2">
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-lift">
+              <Image
+                src="/images/wire-saw-equipment.png"
+                alt="Advanced diamond wire saw machinery cutting a large concrete structure"
+                width={600}
+                height={750}
+                className="h-full w-full object-cover aspect-[4/5] hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-x-3 bottom-3 rounded-2xl border border-white/15 bg-steel/90 p-3.5 backdrop-blur-md">
+                <p className="font-display text-base font-bold text-white">Diamond Wire System</p>
+                <p className="text-xs text-primary font-semibold">Unlimited depth &middot; zero vibration</p>
               </div>
-              <span className="animate-floaty rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">
-                In fleet
-              </span>
+            </div>
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-lift mt-4 sm:mt-8">
+              <Image
+                src="/images/real/project-6.jpeg"
+                alt="SRI Cutting Technologies heavy hydraulic equipment setup on industrial project"
+                width={600}
+                height={750}
+                className="h-full w-full object-cover aspect-[4/5] hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-x-3 bottom-3 rounded-2xl border border-white/15 bg-steel/90 p-3.5 backdrop-blur-md">
+                <p className="font-display text-base font-bold text-white">Heavy Wall &amp; Core Rigs</p>
+                <p className="text-xs text-primary font-semibold">Hydraulic power &middot; water cooled</p>
+              </div>
             </div>
           </div>
         </Reveal>
