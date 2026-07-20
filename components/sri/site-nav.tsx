@@ -1,34 +1,15 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { Menu, Phone, X } from 'lucide-react'
 import { navLinks, site } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 function Logo({ scrolled }: { scrolled: boolean }) {
   return (
-    <a href="#top" className="flex items-center gap-2.5" aria-label={`${site.name} home`}>
-      <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-primary-foreground shadow-soft">
-        <span className="font-display text-lg font-bold leading-none">S</span>
-      </span>
-      <span className="flex flex-col leading-none">
-        <span
-          className={cn(
-            'font-display text-[15px] font-bold tracking-tight transition-colors',
-            scrolled ? 'text-foreground' : 'text-white',
-          )}
-        >
-          SRI Cutting
-        </span>
-        <span
-          className={cn(
-            'text-[10px] font-medium uppercase tracking-[0.2em] transition-colors',
-            scrolled ? 'text-muted-foreground' : 'text-white/60',
-          )}
-        >
-          Technologies
-        </span>
-      </span>
+    <a href="#top" className="flex items-center" aria-label={`${site.name} home`}>
+      <Image src="/images/real/logo.jpeg" alt="SRI Cutting Technologies" width={627} height={446} priority className={cn('h-11 w-auto rounded-md bg-white object-contain p-1 transition-shadow', scrolled && 'shadow-soft')} />
     </a>
   )
 }

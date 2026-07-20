@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Mail, MapPin, Phone } from 'lucide-react'
 import { navLinks, site } from '@/lib/site'
 
@@ -16,20 +17,9 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-primary-foreground">
-                <span className="font-display text-lg font-bold leading-none">S</span>
-              </span>
-              <span className="flex flex-col leading-none">
-                <span className="font-display text-[15px] font-bold">SRI Cutting</span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/50">
-                  Technologies
-                </span>
-              </span>
-            </div>
+            <div className="inline-flex rounded-lg bg-white p-1.5"><Image src="/images/real/logo.jpeg" alt="SRI Cutting Technologies" width={627} height={446} className="h-12 w-auto object-contain" /></div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
-              India&apos;s trusted concrete cutting and controlled demolition specialists.
-              Precision, safety and zero-damage engineering on every project.
+              Concrete cutting and controlled demolition services for residential, commercial and industrial requirements.
             </p>
           </div>
 

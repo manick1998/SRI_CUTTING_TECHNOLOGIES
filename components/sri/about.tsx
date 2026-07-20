@@ -17,21 +17,16 @@ export function About() {
           <div className="relative">
             <div className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
               <Image
-                src="/images/core-drilling.png"
-                alt="SRI Cutting Technologies technician operating a diamond concrete core drilling machine"
+                src="/images/real/project-1.jpeg"
+                alt="SRI Cutting Technologies operator carrying out diamond core drilling on site"
                 width={720}
                 height={820}
                 className="h-full w-full object-cover"
               />
             </div>
             <div className="absolute -bottom-6 -right-2 flex items-center gap-3 rounded-2xl border border-border bg-card p-4 shadow-lift sm:-right-6">
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary">
-                <Target className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="font-display text-xl font-bold leading-none">0.5mm</p>
-                <p className="text-xs text-muted-foreground">cutting tolerance</p>
-              </div>
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary"><Target className="h-5 w-5" /></span>
+              <div><p className="font-display text-xl font-bold leading-none">On-site</p><p className="text-xs text-muted-foreground">cutting expertise</p></div>
             </div>
           </div>
         </Reveal>
@@ -43,16 +38,14 @@ export function About() {
           </span>
           <Reveal delay={0.05}>
             <h2 className="mt-5 text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-              Engineering-grade concrete cutting, trusted by India&apos;s builders
+              Practical concrete cutting solutions for demanding sites
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
-              For over a decade, SRI Cutting Technologies has delivered clean, controlled and
-              damage-free concrete cutting and demolition across residential, commercial,
-              industrial and infrastructure projects. We combine advanced diamond machinery with
-              rigorous safety engineering to solve the toughest structural challenges &mdash; on
-              time, on budget and without compromising your building.
+              SRI Cutting Technologies provides controlled concrete cutting and demolition support
+              for residential, commercial and industrial projects. We use suitable diamond-cutting
+              methods and careful planning to create the openings, cuts and removals your site requires.
             </p>
           </Reveal>
 

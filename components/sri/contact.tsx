@@ -118,6 +118,17 @@ export function Contact() {
                 <form
                   onSubmit={(e) => {
                     e.preventDefault()
+                    const data = new FormData(e.currentTarget)
+                    const message = [
+                      'Hi SRI Cutting Technologies, I would like a quote.',
+                      `Name: ${data.get('name')}`,
+                      `Phone: ${data.get('phone')}`,
+                      `Email: ${data.get('email') || 'Not provided'}`,
+                      `Service: ${data.get('service')}`,
+                      `Location: ${data.get('location') || 'Not provided'}`,
+                      `Project details: ${data.get('message') || 'Not provided'}`,
+                    ].join('\n')
+                    window.open(`https://wa.me/918778760661?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer')
                     setSubmitted(true)
                   }}
                   className="flex flex-col gap-5"

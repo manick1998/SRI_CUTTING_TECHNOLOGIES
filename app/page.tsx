@@ -8,9 +8,9 @@ import { Industries } from '@/components/sri/industries'
 import { Process } from '@/components/sri/process'
 import { Equipment } from '@/components/sri/equipment'
 import { Projects } from '@/components/sri/projects'
+import { Founder } from '@/components/sri/founder'
 import { Safety } from '@/components/sri/safety'
 import { Benefits } from '@/components/sri/benefits'
-import { Testimonials } from '@/components/sri/testimonials'
 import { Faq } from '@/components/sri/faq'
 import { Locations } from '@/components/sri/locations'
 import { Contact } from '@/components/sri/contact'
@@ -32,9 +32,9 @@ export default function Page() {
         <Process />
         <Equipment />
         <Projects />
+        <Founder />
         <Safety />
         <Benefits />
-        <Testimonials />
         <Faq />
         <Locations />
         <Contact />

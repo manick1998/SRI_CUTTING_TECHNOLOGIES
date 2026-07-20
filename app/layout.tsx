@@ -90,28 +90,9 @@ const jsonLd = {
       description:
         'Concrete cutting and controlled demolition company providing core cutting, wall saw, wire saw, RCC cutting and industrial demolition services across India.',
       url: SITE_URL,
-      telephone: '+91-98765-43210',
-      priceRange: '$$',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Industrial Estate, Ambattur',
-        addressLocality: 'Chennai',
-        addressRegion: 'Tamil Nadu',
-        postalCode: '600058',
-        addressCountry: 'IN',
-      },
-      areaServed: 'India',
-      openingHoursSpecification: {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        opens: '08:00',
-        closes: '20:00',
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        reviewCount: '218',
-      },
+      telephone: '+91-8778760661',
+      email: 'manick1323@gmail.com',
+      areaServed: ['Tamil Nadu', 'Puducherry'],
     },
     {
       '@type': 'Service',
