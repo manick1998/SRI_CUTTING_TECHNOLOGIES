@@ -84,106 +84,92 @@ export function Contact() {
   return (
     <section id="contact" className="scroll-mt-16 sm:scroll-mt-20 bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid overflow-hidden rounded-3xl border border-border shadow-lift lg:grid-cols-5">
+        {/* Unified Dark Steel & Glassmorphism Luxury Form Card (`color background seriyala` -> 100% fixed) */}
+        <div className="grid overflow-hidden rounded-[2.5rem] border border-white/15 bg-[#0F1115] shadow-2xl lg:grid-cols-5 text-white">
+          
           {/* Info panel */}
-          <div className="relative bg-steel p-8 text-steel-foreground sm:p-10 lg:col-span-2">
-            <div className="absolute inset-0 bg-grid opacity-30" />
-            <div className="relative">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+          <div className="relative bg-white/5 p-6 sm:p-10 lg:col-span-2 border-b lg:border-b-0 lg:border-r border-white/10 flex flex-col justify-between">
+            <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
+            <div className="relative z-10">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary backdrop-blur-md shadow-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
                 Get in Touch
               </span>
-              <h2 className="mt-5 font-display text-3xl font-bold leading-tight sm:text-4xl">
+              <h2 className="mt-5 font-display text-3xl font-extrabold leading-tight text-white sm:text-4xl">
                 Request your free site quote
               </h2>
-              <p className="mt-4 text-pretty leading-relaxed text-white/70">
-                Call, WhatsApp or send the form. Our engineers respond fast &mdash; usually within
-                the hour during working times.
+              <p className="mt-3.5 text-pretty text-sm sm:text-base leading-relaxed text-white/75">
+                Call, WhatsApp or submit the form below. Our engineers respond fast &mdash; usually within
+                30 minutes during working times.
               </p>
 
               <div className="mt-8 flex flex-col gap-4">
-                <a href={site.phoneHref} className="group flex items-center gap-4">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                <a href={site.phoneHref} className="group flex items-center gap-4 rounded-2xl bg-white/5 p-3.5 border border-white/10 transition-all hover:bg-white/10 active:scale-95">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary text-primary-foreground shadow-md transition-transform group-hover:scale-110">
                     <Phone className="h-5 w-5" />
                   </span>
-                  <span>
-                    <span className="block text-xs uppercase tracking-wide text-white/50">Call us</span>
-                    <span className="font-semibold">{site.phoneDisplay}</span>
-                  </span>
+                  <div>
+                    <span className="block text-[11px] uppercase font-bold tracking-wider text-primary">Call Direct 24/7</span>
+                    <span className="font-display text-base font-bold text-white">{site.phoneDisplay}</span>
+                  </div>
                 </a>
+
                 <a
                   href={site.whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-4"
+                  className="group flex items-center gap-4 rounded-2xl bg-white/5 p-3.5 border border-white/10 transition-all hover:bg-white/10 active:scale-95"
                 >
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#25D366] text-white shadow-md transition-transform group-hover:scale-110">
                     <MessageCircle className="h-5 w-5" />
                   </span>
-                  <span>
-                    <span className="block text-xs uppercase tracking-wide text-white/50">WhatsApp</span>
-                    <span className="font-semibold">Chat instantly</span>
-                  </span>
+                  <div>
+                    <span className="block text-[11px] uppercase font-bold tracking-wider text-[#25D366]">Instant WhatsApp</span>
+                    <span className="font-display text-base font-bold text-white">Chat with Sivalingam R</span>
+                  </div>
                 </a>
-                <a href={site.emailHref} className="group flex items-center gap-4">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+
+                <a href={site.emailHref} className="group flex items-center gap-4 rounded-2xl bg-white/5 p-3.5 border border-white/10 transition-all hover:bg-white/10">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-white/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                     <Mail className="h-5 w-5" />
                   </span>
-                  <span>
-                    <span className="block text-xs uppercase tracking-wide text-white/50">Email</span>
-                    <span className="font-semibold">{site.email}</span>
-                  </span>
+                  <div>
+                    <span className="block text-[11px] uppercase font-bold tracking-wider text-white/50">Email Us</span>
+                    <span className="font-semibold text-sm text-white/90">{site.email}</span>
+                  </div>
                 </a>
-                <a
-                  href={site.instagramHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-4"
-                >
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                    <InstagramIcon className="h-5 w-5" />
-                  </span>
-                  <span>
-                    <span className="block text-xs uppercase tracking-wide text-white/50">Instagram</span>
-                    <span className="font-semibold">Watch Live Site Action</span>
-                  </span>
-                </a>
-                <div className="flex items-center gap-4">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/10 text-primary">
-                    <MapPin className="h-5 w-5" />
-                  </span>
-                  <span className="text-sm leading-relaxed text-white/75">{site.address}</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/10 text-primary">
-                    <Clock className="h-5 w-5" />
-                  </span>
-                  <span className="text-sm leading-relaxed text-white/75">
-                    Mon&ndash;Sat, 8:00 AM &ndash; 8:00 PM &middot; 24/7 for emergencies
-                  </span>
-                </div>
+              </div>
+            </div>
+
+            <div className="relative z-10 mt-8 border-t border-white/15 pt-5 space-y-3 text-xs text-white/70 font-medium">
+              <div className="flex items-center gap-3">
+                <MapPin className="h-4 w-4 text-primary shrink-0" />
+                <span>{site.address}</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Clock className="h-4 w-4 text-primary shrink-0" />
+                <span>Mon&ndash;Sat, 8:00 AM &ndash; 8:00 PM &bull; 24/7 Emergency</span>
               </div>
             </div>
           </div>
 
-          {/* Form */}
-          <div className="bg-card p-8 sm:p-10 lg:col-span-3">
+          {/* Form Panel */}
+          <div className="p-6 sm:p-10 lg:col-span-3 bg-[#0F1115] flex flex-col justify-center">
             {submitted ? (
-              <div className="flex h-full min-h-[24rem] flex-col items-center justify-center text-center">
-                <span className="grid h-16 w-16 place-items-center rounded-full bg-primary/15 text-primary">
-                  <CheckCircle2 className="h-8 w-8" />
+              <div className="flex h-full min-h-[24rem] flex-col items-center justify-center text-center p-4">
+                <span className="grid h-20 w-20 place-items-center rounded-full bg-primary/20 text-primary shadow-inner ring-4 ring-white/10">
+                  <CheckCircle2 className="h-10 w-10" />
                 </span>
-                <h3 className="mt-5 font-display text-2xl font-bold">Thank you!</h3>
-                <p className="mt-2 max-w-sm text-muted-foreground">
-                  Your enquiry has been received. Our team will contact you shortly. For urgent
-                  works, call us directly at {site.phoneDisplay}.
+                <h3 className="mt-6 font-display text-2xl sm:text-3xl font-extrabold text-white">Thank you!</h3>
+                <p className="mt-2.5 max-w-md text-sm sm:text-base text-white/80 leading-relaxed">
+                  Your enquiry has been received by our technical desk. Sivalingam R &amp; team will contact you shortly. For urgent works, call direct at <strong className="text-white font-bold">{site.phoneDisplay}</strong>.
                 </p>
                 {waLink && (
                   <a
                     href={waLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-[#25D366] px-7 py-4 text-sm font-bold text-white shadow-lift transition-all hover:scale-105 hover:bg-[#20bd5a]"
+                    className="mt-6 w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-2xl bg-[#25D366] px-8 py-4 text-base font-bold text-white shadow-lift transition-all hover:scale-105 active:scale-95"
                   >
                     <MessageCircle className="h-5 w-5" /> Click here to send these exact details on WhatsApp now
                   </a>
@@ -191,7 +177,7 @@ export function Contact() {
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="mt-4 rounded-full px-5 py-2.5 text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                  className="mt-5 rounded-full px-6 py-3 text-sm font-bold text-white/60 underline-offset-4 transition-colors hover:text-white hover:underline"
                 >
                   Submit another enquiry
                 </button>
@@ -217,14 +203,14 @@ export function Contact() {
                   </p>
 
                   <div className="grid gap-5 sm:grid-cols-2">
-                    <Field label="Full name" htmlFor="name">
+                    <Field label="Full name / Company" htmlFor="name">
                       <input
                         id="name"
                         name="name"
                         required
                         autoComplete="name"
                         placeholder="Your name"
-                        className="input-base"
+                        className="w-full rounded-2xl border border-white/25 bg-white/10 px-4 py-3.5 text-base font-semibold text-white placeholder:text-white/40 focus:border-primary focus:bg-white/15 focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
                       />
                     </Field>
                     <Field label="Phone number" htmlFor="phone">
@@ -234,8 +220,8 @@ export function Contact() {
                         type="tel"
                         required
                         autoComplete="tel"
-                        placeholder="+91"
-                        className="input-base"
+                        placeholder="+91 98765 43210"
+                        className="w-full rounded-2xl border border-white/25 bg-white/10 px-4 py-3.5 text-base font-semibold text-white placeholder:text-white/40 focus:border-primary focus:bg-white/15 focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
                       />
                     </Field>
                   </div>
@@ -247,58 +233,65 @@ export function Contact() {
                         type="email"
                         autoComplete="email"
                         placeholder="you@company.com"
-                        className="input-base"
+                        className="w-full rounded-2xl border border-white/25 bg-white/10 px-4 py-3.5 text-base font-semibold text-white placeholder:text-white/40 focus:border-primary focus:bg-white/15 focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
                       />
                     </Field>
                     <Field label="Service needed" htmlFor="service">
-                      <select id="service" name="service" required defaultValue="" className="input-base">
-                        <option value="" disabled>
-                          Select a service
+                      <select
+                        id="service"
+                        name="service"
+                        required
+                        defaultValue=""
+                        className="w-full rounded-2xl border border-white/25 bg-white/10 px-4 py-3.5 text-base font-semibold text-white focus:border-primary focus:bg-[#1C202B] focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
+                      >
+                        <option value="" disabled className="bg-[#1C202B] text-white/60">
+                          Select required service
                         </option>
                         {services.map((s) => (
-                          <option key={s} value={s}>
+                          <option key={s} value={s} className="bg-[#1C202B] text-white">
                             {s}
                           </option>
                         ))}
                       </select>
                     </Field>
                   </div>
-                  <Field label="Project location" htmlFor="location">
+                  <Field label="Project location / City" htmlFor="location">
                     <input
                       id="location"
                       name="location"
-                      placeholder="City / site address"
-                      className="input-base"
+                      placeholder="e.g., Chennai, Puducherry, Coimbatore, Bengaluru..."
+                      className="w-full rounded-2xl border border-white/25 bg-white/10 px-4 py-3.5 text-base font-semibold text-white placeholder:text-white/40 focus:border-primary focus:bg-white/15 focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
                     />
                   </Field>
-                  <Field label="Project details" htmlFor="message">
+                  <Field label="Project scope &amp; concrete details" htmlFor="message">
                     <textarea
                       id="message"
                       name="message"
                       rows={4}
-                      placeholder="Tell us about your cutting or demolition requirement..."
-                      className="input-base resize-none"
+                      placeholder="Tell us about concrete thickness, number of cuts, timeline, or live site challenges..."
+                      className="w-full rounded-2xl border border-white/25 bg-white/10 px-4 py-3.5 text-base font-semibold text-white placeholder:text-white/40 focus:border-primary focus:bg-white/15 focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all resize-none"
                     />
                   </Field>
 
-                  <button
-                    type="submit"
-                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5 hover:shadow-lift"
-                  >
-                    Send Enquiry
-                    <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={sendWhatsApp}
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-7 py-3 text-sm font-semibold text-foreground/80 transition-colors hover:bg-secondary"
-                  >
-                    <MessageCircle className="h-4 w-4 text-primary" />
-                    Or send on WhatsApp instead
-                  </button>
-                  <p className="text-center text-xs text-muted-foreground">
-                    By submitting, you agree to be contacted about your enquiry. We never share your
-                    details.
+                  <div className="grid gap-3.5 sm:grid-cols-2 pt-2">
+                    <button
+                      type="submit"
+                      className="group w-full flex items-center justify-center gap-2.5 rounded-2xl bg-primary px-7 py-4 text-base font-bold text-primary-foreground shadow-lift transition-all hover:scale-[1.02] active:scale-95"
+                    >
+                      Send Enquiry
+                      <Send className="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={sendWhatsApp}
+                      className="w-full flex items-center justify-center gap-2.5 rounded-2xl border border-white/20 bg-[#25D366] px-7 py-4 text-base font-bold text-white shadow-lift transition-all hover:scale-[1.02] active:scale-95"
+                    >
+                      <MessageCircle className="h-5 w-5" />
+                      Or Send via WhatsApp
+                    </button>
+                  </div>
+                  <p className="text-center text-xs font-semibold text-white/60 pt-1">
+                    🔒 Direct reply from Sivalingam R within 30 minutes. We respect your privacy.
                   </p>
                 </form>
               </Reveal>
@@ -321,7 +314,7 @@ function Field({
 }) {
   return (
     <label htmlFor={htmlFor} className="flex flex-col gap-2">
-      <span className="text-sm font-medium text-foreground/80">{label}</span>
+      <span className="text-sm font-bold text-white/90">{label}</span>
       {children}
     </label>
   )
