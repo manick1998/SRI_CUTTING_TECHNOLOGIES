@@ -1,6 +1,6 @@
 'use client'
 
-import { Film, MapPin, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react'
+import { Film, MapPin, MessageCircle, Sparkles } from 'lucide-react'
 import { InstagramIcon } from '@/components/ui/instagram-icon'
 import { site } from '@/lib/site'
 import { Reveal, Stagger, StaggerItem } from './reveal'
@@ -74,7 +74,7 @@ export function Videos() {
               className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-lift transition-transform hover:-translate-y-0.5"
             >
               <InstagramIcon className="h-4 w-4" />
-              Watch More on Instagram (@siva.lingam.923519)
+              Watch More on Instagram
             </a>
             <a
               href={site.whatsappHref}
@@ -136,7 +136,7 @@ export function Videos() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-white/90 transition-colors hover:text-primary"
                     >
-                      <InstagramIcon className="h-4 w-4 text-primary" /> Reel Profile
+                      <InstagramIcon className="h-4 w-4 text-primary" /> Instagram
                     </a>
                     <a
                       href={`https://wa.me/918778760661?text=${encodeURIComponent(`Hi SRI Cutting Technologies, I saw your video "${v.title}" on the website. Please share quote/details for a similar requirement.`)}`}

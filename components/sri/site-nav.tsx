@@ -67,10 +67,8 @@ export function SiteNav() {
     <>
       <header
         className={cn(
-          'fixed inset-x-0 top-0 z-50 transition-all duration-200 border-b',
-          scrolled || open
-            ? 'border-white/10 bg-steel/98 backdrop-blur-md shadow-lg'
-            : 'border-transparent bg-gradient-to-b from-steel/95 via-steel/80 to-transparent',
+          'fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0F1115] shadow-lg',
+          scrolled || open ? 'bg-[#0F1115]' : 'bg-[#0F1115]/95',
         )}
       >
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
@@ -122,7 +120,7 @@ export function SiteNav() {
 
       {/* Mobile Drawer (Sits directly under fixed 64px header without touching body overflow!) */}
       {open && (
-        <div className="fixed inset-x-0 top-16 bottom-0 z-40 bg-steel/98 backdrop-blur-xl overflow-y-auto lg:hidden">
+        <div className="fixed inset-x-0 top-16 bottom-0 z-40 bg-[#0F1115]/98 overflow-y-auto lg:hidden border-t border-white/10">
           <div className="mx-auto flex max-w-7xl flex-col gap-1.5 px-4 py-6 sm:px-6">
             {navLinks.map((link) => (
               <a

@@ -130,7 +130,7 @@ export function Founder() {
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full border border-border bg-card px-7 py-4 text-sm font-bold text-foreground shadow-soft transition-colors hover:bg-secondary hover:text-primary"
                 >
                   <InstagramIcon className="h-4 w-4 text-primary" />
-                  Follow @siva.lingam.923519
+                  Instagram Reels
                 </a>
               </div>
             </Reveal>

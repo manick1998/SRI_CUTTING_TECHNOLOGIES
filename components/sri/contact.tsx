@@ -145,7 +145,7 @@ export function Contact() {
                   </span>
                   <span>
                     <span className="block text-xs uppercase tracking-wide text-white/50">Instagram</span>
-                    <span className="font-semibold">@siva.lingam.923519</span>
+                    <span className="font-semibold">Watch Live Site Action</span>
                   </span>
                 </a>
                 <div className="flex items-center gap-4">

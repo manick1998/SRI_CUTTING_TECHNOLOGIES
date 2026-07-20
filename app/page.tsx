@@ -30,10 +30,10 @@ export default function Page() {
         <TrustBadges />
         <Videos />
         <Projects />
+        <Founder />
         <Services />
         <Calculator />
         <About />
-        <Founder />
         <WhyChoose />
         <Testimonials />
         <Industries />

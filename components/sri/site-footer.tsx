@@ -91,7 +91,7 @@ export function SiteFooter() {
               <li>
                 <a href={site.instagramHref} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-white/60 hover:text-primary">
                   <InstagramIcon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                  <span>Instagram @siva.lingam.923519</span>
+                  <span>Watch on Instagram</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-white/60">
