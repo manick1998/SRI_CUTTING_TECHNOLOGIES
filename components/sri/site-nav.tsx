@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 
 function Logo({ scrolled }: { scrolled: boolean }) {
   return (
-    <a href="#top" className="flex items-center" aria-label={`${site.name} home`}>
+    <a href="/" className="flex items-center" aria-label={`${site.name} home`}>
       <Image
         src="/images/real/logo-mark.jpeg"
         alt="SRI Cutting Technologies"
@@ -83,7 +83,7 @@ export function SiteNav() {
             {site.phoneDisplay}
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift"
           >
             Get a Free Quote
@@ -118,7 +118,7 @@ export function SiteNav() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-full bg-primary px-5 py-3 text-center text-base font-semibold text-primary-foreground"
             >

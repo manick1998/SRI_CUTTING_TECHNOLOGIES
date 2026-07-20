@@ -1,9 +1,13 @@
+# Netlify configuration for SRI CUTTING TECHNOLOGIES (Next.js static export)
+
 [build]
   command = "npm run build"
-  publish = ".next"
+  publish = "out"
 
 [build.environment]
   NODE_VERSION = "20"
   NPM_FLAGS = "--legacy-peer-deps"
-
-# Next.js is detected automatically by Netlify. Its Next.js runtime handles the deployment.
+  # We ship a fully static export (/out), so the Next.js runtime plugin is not
+  # needed. Skipping it avoids the "@netlify/plugin-nextjs failed —
+  # Failed assembling prerendered content for upload" build error.
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"

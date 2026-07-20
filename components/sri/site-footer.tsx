@@ -1,23 +1,30 @@
 import Image from 'next/image'
 import { Mail, MapPin, Phone } from 'lucide-react'
 import { navLinks, site } from '@/lib/site'
+import { getService } from '@/lib/services-data'
 
-const serviceLinks = [
-  'Concrete Core Cutting',
-  'Wall Saw Cutting',
-  'Wire Saw Cutting',
-  'RCC Cutting',
-  'Controlled Demolition',
-  'Industrial Demolition',
+const footerServiceSlugs = [
+  'concrete-core-cutting',
+  'wall-saw-cutting',
+  'wire-saw-cutting',
+  'rcc-cutting',
+  'controlled-demolition',
+  'industrial-demolition',
 ]
 
 export function SiteFooter() {
+  const footerServices = footerServiceSlugs
+    .map((slug) => getService(slug))
+    .filter((s): s is NonNullable<typeof s> => Boolean(s))
+
   return (
     <footer className="bg-steel text-steel-foreground">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <div className="inline-flex rounded-lg bg-white p-1.5"><Image src="/images/real/logo.jpeg" alt="SRI Cutting Technologies" width={627} height={446} className="h-12 w-auto object-contain" /></div>
+            <a href="/" aria-label={`${site.name} home`} className="inline-flex rounded-lg bg-white p-1.5">
+              <Image src="/images/real/logo.jpeg" alt="SRI Cutting Technologies" width={627} height={446} className="h-12 w-auto object-contain" />
+            </a>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
               Concrete cutting and controlled demolition services for residential, commercial and industrial requirements.
             </p>
@@ -43,10 +50,10 @@ export function SiteFooter() {
               Services
             </h3>
             <ul className="mt-4 flex flex-col gap-3 text-sm">
-              {serviceLinks.map((s) => (
-                <li key={s}>
-                  <a href="#services" className="text-white/60 transition-colors hover:text-primary">
-                    {s}
+              {footerServices.map((s) => (
+                <li key={s.slug}>
+                  <a href={`/services/${s.slug}`} className="text-white/60 transition-colors hover:text-primary">
+                    {s.title}
                   </a>
                 </li>
               ))}

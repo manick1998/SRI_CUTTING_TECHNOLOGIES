@@ -8,12 +8,15 @@ import { locations, getLocation } from '@/lib/locations-data'
 import { services } from '@/lib/services-data'
 import { SITE_URL, site } from '@/lib/site'
 
+export const dynamicParams = false
+
 export function generateStaticParams() {
   return locations.map((l) => ({ slug: l.slug }))
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const l = getLocation(params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const l = getLocation(slug)
   if (!l) return {}
   return {
     title: `Concrete Cutting & Demolition in ${l.city} | SRI Cutting Technologies`,
@@ -27,8 +30,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   }
 }
 
-export default function LocationPage({ params }: { params: { slug: string } }) {
-  const loc = getLocation(params.slug)
+export default async function LocationPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const loc = getLocation(slug)
   if (!loc) notFound()
 
   const jsonLd = {

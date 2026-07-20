@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import { Inter, Space_Grotesk } from 'next/font/google'
@@ -196,7 +195,6 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script

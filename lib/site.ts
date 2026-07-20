@@ -32,10 +32,10 @@ export const site = {
 } as const
 
 export const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Industries', href: '#industries' },
-  { label: 'Process', href: '#process' },
-  { label: 'Our Work', href: '#projects' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'About', href: '/#about' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Industries', href: '/#industries' },
+  { label: 'Process', href: '/#process' },
+  { label: 'Our Work', href: '/#projects' },
+  { label: 'FAQ', href: '/#faq' },
 ] as const
