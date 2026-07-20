@@ -26,13 +26,13 @@ export default function Page() {
         <Hero />
         <TrustBadges />
         <About />
+        <Founder />
         <WhyChoose />
         <Services />
         <Industries />
         <Process />
         <Equipment />
         <Projects />
-        <Founder />
         <Safety />
         <Benefits />
         <Faq />

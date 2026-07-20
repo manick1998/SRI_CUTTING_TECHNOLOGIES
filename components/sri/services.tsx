@@ -1,36 +1,8 @@
-import {
-  ArrowUpRight,
-  CircleDot,
-  Grid2x2,
-  Hammer,
-  Layers,
-  Minus,
-  Rows3,
-  Ruler,
-  Scissors,
-  SquareStack,
-  Waves,
-  Wrench,
-  Zap,
-} from 'lucide-react'
+import { ArrowUpRight, MessageCircle } from 'lucide-react'
 import { SectionHeading } from './section-heading'
 import { Stagger, StaggerItem } from './reveal'
+import { services } from '@/lib/services-data'
 import { site } from '@/lib/site'
-
-const services = [
-  { icon: CircleDot, title: 'Concrete Core Cutting', body: 'Clean circular holes for plumbing, HVAC, electrical and structural anchoring — any diameter, any depth.' },
-  { icon: SquareStack, title: 'Wall Saw Cutting', body: 'Precise openings for doors, windows and ducts in thick reinforced concrete walls.' },
-  { icon: Layers, title: 'Slab Saw Cutting', body: 'Accurate horizontal cuts through floors and slabs for openings and modifications.' },
-  { icon: Minus, title: 'Groove Cutting', body: 'Controlled grooving for cables, joints and anti-skid surface treatments.' },
-  { icon: Rows3, title: 'Beam Cutting', body: 'Careful sectioning of RCC beams while safeguarding surrounding structure.' },
-  { icon: Grid2x2, title: 'Floor Saw Cutting', body: 'Long straight cuts in roads, pavements and industrial floors with clean edges.' },
-  { icon: Wrench, title: 'RCC Cutting', body: 'Heavy reinforced concrete cutting through dense rebar without structural damage.' },
-  { icon: Waves, title: 'Wire Saw Cutting', body: 'Diamond wire cutting for massive sections, piers and hard-to-reach structures.' },
-  { icon: Ruler, title: 'Expansion Joint Cutting', body: 'Precise joints that manage thermal movement and prevent cracking.' },
-  { icon: Hammer, title: 'Concrete Breaking', body: 'Controlled breaking and removal for renovations and structural alterations.' },
-  { icon: Zap, title: 'Controlled Demolition', body: 'Engineered, low-impact demolition that protects adjacent structures and occupants.' },
-  { icon: Scissors, title: 'Industrial Demolition', body: 'Large-scale dismantling of factories and plants with full safety compliance.' },
-]
 
 export function Services() {
   return (
@@ -44,9 +16,9 @@ export function Services() {
 
         <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
-            <StaggerItem key={s.title}>
+            <StaggerItem key={s.slug}>
               <a
-                href="#contact"
+                href={`/services/${s.slug}`}
                 className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-lift"
               >
                 <div className="flex items-center justify-between">
@@ -56,7 +28,10 @@ export function Services() {
                   <ArrowUpRight className="h-5 w-5 text-muted-foreground/50 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
                 </div>
                 <h3 className="mt-5 font-display text-lg font-semibold">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.short}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  Learn more <ArrowUpRight className="h-3.5 w-3.5" />
+                </span>
               </a>
             </StaggerItem>
           ))}
@@ -77,8 +52,7 @@ export function Services() {
             rel="noopener noreferrer"
             className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
           >
-            Talk to an Engineer
-            <ArrowUpRight className="h-4 w-4" />
+            <MessageCircle className="h-4 w-4" /> Talk to an Engineer
           </a>
         </div>
       </div>

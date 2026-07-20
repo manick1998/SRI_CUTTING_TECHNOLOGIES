@@ -4,11 +4,14 @@ import Image from 'next/image'
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
 import { ArrowRight, MessageCircle, Phone, ShieldCheck } from 'lucide-react'
 import { site } from '@/lib/site'
+import { Counter } from './counter'
+
+// ⚠️ PLACEHOLDER figures — replace with SRI Cutting Technologies' REAL numbers before going live.
 const stats = [
-  { value: 'Core', label: 'diamond cutting' },
-  { value: 'Wall', label: '& floor sawing' },
-  { value: 'Wire', label: 'saw cutting' },
-  { value: 'RCC', label: '& slab openings' },
+  { to: 500, suffix: '+', label: 'Projects completed' },
+  { to: 10, suffix: '+', label: 'Years of experience' },
+  { to: 100, suffix: '%', label: 'Safety compliance' },
+  { to: 24, suffix: '/7', label: 'Emergency support' },
 ]
 
 export function Hero() {
@@ -127,7 +130,7 @@ export function Hero() {
           {stats.map((s) => (
             <div key={s.label} className="bg-steel/40 p-5 sm:p-6">
               <dd className="font-display text-3xl font-bold text-white sm:text-4xl">
-                {s.value}
+                <Counter to={s.to} suffix={s.suffix} />
               </dd>
               <dt className="mt-1 text-xs font-medium uppercase tracking-wide text-white/60 sm:text-sm">
                 {s.label}

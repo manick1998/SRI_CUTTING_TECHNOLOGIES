@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { CheckCircle2, Clock, Mail, MapPin, MessageCircle, Phone, Send } from 'lucide-react'
 import { site } from '@/lib/site'
 import { Reveal } from './reveal'
@@ -19,8 +19,60 @@ const services = [
   'Other / Not sure',
 ]
 
+function composeMessage(data: FormData) {
+  return [
+    'Hi SRI Cutting Technologies, I would like a quote.',
+    `Name: ${data.get('name')}`,
+    `Phone: ${data.get('phone')}`,
+    `Email: ${data.get('email') || 'Not provided'}`,
+    `Service: ${data.get('service')}`,
+    `Location: ${data.get('location') || 'Not provided'}`,
+    `Project details: ${data.get('message') || 'Not provided'}`,
+  ].join('\n')
+}
+
+const WA_NUMBER = '918778760661'
+
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [waLink, setWaLink] = useState('')
+  const formRef = useRef<HTMLFormElement>(null)
+
+  // Primary submit: capture the lead in Netlify Forms (real submission).
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const form = e.currentTarget
+    const data = new FormData(form)
+    setWaLink(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(composeMessage(data))}`)
+    try {
+      const body = new URLSearchParams()
+      data.forEach((value, key) => {
+        if (typeof value === 'string') body.append(key, value)
+      })
+      body.set('form-name', 'contact')
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString(),
+      })
+    } catch {
+      // If Netlify capture is unavailable (e.g. local preview), the lead is
+      // still recoverable via the WhatsApp button shown in the success state.
+    }
+    setSubmitted(true)
+  }
+
+  // Secondary path: send the typed details straight to WhatsApp (no form submit).
+  const sendWhatsApp = () => {
+    const form = formRef.current
+    if (!form) return
+    const data = new FormData(form)
+    window.open(
+      `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(composeMessage(data))}`,
+      '_blank',
+      'noopener,noreferrer',
+    )
+  }
 
   return (
     <section id="contact" className="scroll-mt-20 bg-background py-20 sm:py-28">
@@ -105,10 +157,20 @@ export function Contact() {
                   Your enquiry has been received. Our team will contact you shortly. For urgent
                   works, call us directly at {site.phoneDisplay}.
                 </p>
+                {waLink && (
+                  <a
+                    href={waLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary"
+                  >
+                    <MessageCircle className="h-4 w-4 text-primary" /> Also send these details on WhatsApp
+                  </a>
+                )}
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="mt-6 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary"
+                  className="mt-4 rounded-full px-5 py-2.5 text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
                 >
                   Submit another enquiry
                 </button>
@@ -116,23 +178,22 @@ export function Contact() {
             ) : (
               <Reveal>
                 <form
-                  onSubmit={(e) => {
-                    e.preventDefault()
-                    const data = new FormData(e.currentTarget)
-                    const message = [
-                      'Hi SRI Cutting Technologies, I would like a quote.',
-                      `Name: ${data.get('name')}`,
-                      `Phone: ${data.get('phone')}`,
-                      `Email: ${data.get('email') || 'Not provided'}`,
-                      `Service: ${data.get('service')}`,
-                      `Location: ${data.get('location') || 'Not provided'}`,
-                      `Project details: ${data.get('message') || 'Not provided'}`,
-                    ].join('\n')
-                    window.open(`https://wa.me/918778760661?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer')
-                    setSubmitted(true)
-                  }}
+                  ref={formRef}
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  netlify-honeypot="bot-field"
+                  onSubmit={handleSubmit}
                   className="flex flex-col gap-5"
                 >
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p className="hidden" aria-hidden="true">
+                    <label>
+                      Don&rsquo;t fill this out:{' '}
+                      <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                    </label>
+                  </p>
+
                   <div className="grid gap-5 sm:grid-cols-2">
                     <Field label="Full name" htmlFor="name">
                       <input
@@ -204,6 +265,14 @@ export function Contact() {
                   >
                     Send Enquiry
                     <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={sendWhatsApp}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-7 py-3 text-sm font-semibold text-foreground/80 transition-colors hover:bg-secondary"
+                  >
+                    <MessageCircle className="h-4 w-4 text-primary" />
+                    Or send on WhatsApp instead
                   </button>
                   <p className="text-center text-xs text-muted-foreground">
                     By submitting, you agree to be contacted about your enquiry. We never share your

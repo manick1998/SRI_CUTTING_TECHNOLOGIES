@@ -9,7 +9,17 @@ import { cn } from '@/lib/utils'
 function Logo({ scrolled }: { scrolled: boolean }) {
   return (
     <a href="#top" className="flex items-center" aria-label={`${site.name} home`}>
-      <Image src="/images/real/logo.jpeg" alt="SRI Cutting Technologies" width={627} height={446} priority className={cn('h-11 w-auto rounded-md bg-white object-contain p-1 transition-shadow', scrolled && 'shadow-soft')} />
+      <Image
+        src="/images/real/logo-mark.jpeg"
+        alt="SRI Cutting Technologies"
+        width={627}
+        height={276}
+        priority
+        className={cn(
+          'h-10 w-auto rounded-xl bg-white object-contain p-1.5 ring-1 ring-black/5 transition-shadow sm:h-11',
+          scrolled && 'shadow-soft',
+        )}
+      />
     </a>
   )
 }

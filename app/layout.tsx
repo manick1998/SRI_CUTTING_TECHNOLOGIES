@@ -1,6 +1,8 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import { Inter, Space_Grotesk } from 'next/font/google'
+import { SITE_URL, site } from '@/lib/site'
 import './globals.css'
 
 const inter = Inter({
@@ -14,8 +16,6 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
   display: 'swap',
 })
-
-const SITE_URL = 'https://sricuttingtech.in'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -85,14 +85,34 @@ const jsonLd = {
     {
       '@type': 'LocalBusiness',
       '@id': `${SITE_URL}/#business`,
-      name: 'SRI Cutting Technologies',
+      name: site.name,
       image: `${SITE_URL}/images/hero-wall-saw.png`,
+      logo: `${SITE_URL}/images/real/logo.jpeg`,
       description:
         'Concrete cutting and controlled demolition company providing core cutting, wall saw, wire saw, RCC cutting and industrial demolition services across India.',
       url: SITE_URL,
       telephone: '+91-8778760661',
-      email: 'manick1323@gmail.com',
-      areaServed: ['Tamil Nadu', 'Puducherry'],
+      email: site.email,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: site.addressLocality,
+        addressRegion: site.addressRegion,
+        addressCountry: site.addressCountry,
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: site.coords.latitude,
+        longitude: site.coords.longitude,
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+          opens: '08:00',
+          closes: '20:00',
+        },
+      ],
+      areaServed: site.serviceAreas,
     },
     {
       '@type': 'Service',
@@ -177,6 +197,20 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   )
