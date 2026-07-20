@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react'
 import { CheckCircle2, Clock, Mail, MapPin, MessageCircle, Phone, Send } from 'lucide-react'
+import { InstagramIcon } from '@/components/ui/instagram-icon'
 import { site } from '@/lib/site'
 import { Reveal } from './reveal'
 
@@ -125,6 +126,20 @@ export function Contact() {
                   <span>
                     <span className="block text-xs uppercase tracking-wide text-white/50">Email</span>
                     <span className="font-semibold">{site.email}</span>
+                  </span>
+                </a>
+                <a
+                  href={site.instagramHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4"
+                >
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <InstagramIcon className="h-5 w-5" />
+                  </span>
+                  <span>
+                    <span className="block text-xs uppercase tracking-wide text-white/50">Instagram</span>
+                    <span className="font-semibold">@siva.lingam.923519</span>
                   </span>
                 </a>
                 <div className="flex items-center gap-4">

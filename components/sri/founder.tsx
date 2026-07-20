@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Award, Phone } from 'lucide-react'
+import { InstagramIcon } from '@/components/ui/instagram-icon'
 import { site } from '@/lib/site'
 import { Reveal } from './reveal'
 
@@ -16,7 +17,12 @@ export function Founder() {
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary"><Award className="h-3.5 w-3.5" />Founder-led service</span>
           <Reveal delay={0.05}><h2 id="founder-heading" className="mt-5 font-display text-3xl font-bold tracking-tight sm:text-4xl">Direct accountability on every project</h2></Reveal>
           <Reveal delay={0.1}><p className="mt-5 max-w-2xl leading-relaxed text-muted-foreground">SRI Cutting Technologies is led by <strong className="text-foreground">Sivalingam R</strong>. We bring practical on-site focus to every cutting requirement—from the first site discussion through safe execution and handover.</p></Reveal>
-          <Reveal delay={0.15}><a href={site.phoneHref} className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"><Phone className="h-4 w-4" />Speak with {site.founder}</a></Reveal>
+          <Reveal delay={0.15}>
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <a href={site.phoneHref} className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"><Phone className="h-4 w-4" />Speak with {site.founder}</a>
+              <a href={site.instagramHref} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"><InstagramIcon className="h-4 w-4 text-primary" />Follow on Instagram</a>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

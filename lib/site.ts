@@ -9,6 +9,8 @@ export const site = {
   phoneHref: 'tel:+918778760661',
   whatsappHref:
     'https://wa.me/918778760661?text=Hi%20SRI%20Cutting%20Technologies%2C%20I%20would%20like%20a%20quote%20for%20a%20concrete%20cutting%20project.',
+  instagramHref: 'https://www.instagram.com/siva.lingam.923519/',
+  instagramHandle: '@siva.lingam.923519',
   // Professional email on your own domain.
   // ⚠️ Make sure the mailbox (e.g. via Zoho Mail / Google Workspace) is set up so mails are received.
   email: 'info@sricuttingtech.in',

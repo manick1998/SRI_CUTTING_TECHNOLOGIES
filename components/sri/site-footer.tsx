@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Mail, MapPin, Phone } from 'lucide-react'
+import { InstagramIcon } from '@/components/ui/instagram-icon'
 import { navLinks, site } from '@/lib/site'
 import { getService } from '@/lib/services-data'
 
@@ -77,6 +78,12 @@ export function SiteFooter() {
                   {site.email}
                 </a>
               </li>
+              <li>
+                <a href={site.instagramHref} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-white/60 hover:text-primary">
+                  <InstagramIcon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  <span>Instagram @siva.lingam.923519</span>
+                </a>
+              </li>
               <li className="flex items-start gap-3 text-white/60">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 {site.address}
@@ -89,7 +96,14 @@ export function SiteFooter() {
           <p>
             &copy; {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
-          <p>Precision Concrete Cutting &middot; Controlled Demolition &middot; Made in India</p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a href={site.instagramHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-white/70 transition-colors hover:text-primary">
+              <InstagramIcon className="h-4 w-4 text-primary" />
+              <span>Follow on Instagram</span>
+            </a>
+            <span className="hidden sm:inline">&middot;</span>
+            <p>Precision Concrete Cutting &middot; Controlled Demolition</p>
+          </div>
         </div>
       </div>
     </footer>

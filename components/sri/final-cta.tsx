@@ -1,4 +1,5 @@
 import { ArrowRight, MessageCircle, Phone } from 'lucide-react'
+import { InstagramIcon } from '@/components/ui/instagram-icon'
 import { site } from '@/lib/site'
 import { Reveal } from './reveal'
 
@@ -42,6 +43,15 @@ export function FinalCta() {
                 >
                   <MessageCircle className="h-4 w-4" />
                   WhatsApp
+                </a>
+                <a
+                  href={site.instagramHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-black/15 bg-white/15 px-7 py-3.5 text-sm font-semibold backdrop-blur-sm transition-colors hover:bg-white/25"
+                >
+                  <InstagramIcon className="h-4 w-4" />
+                  Instagram
                 </a>
               </div>
             </div>
