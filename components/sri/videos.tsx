@@ -1,9 +1,52 @@
 'use client'
 
-import { Film, MessageCircle, Play, ShieldCheck, Sparkles } from 'lucide-react'
+import { Film, MapPin, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react'
 import { InstagramIcon } from '@/components/ui/instagram-icon'
 import { site } from '@/lib/site'
-import { Reveal } from './reveal'
+import { Reveal, Stagger, StaggerItem } from './reveal'
+
+export type VideoItem = {
+  id: string
+  title: string
+  method: string
+  location: string
+  src: string
+  description: string
+  highlight: string
+}
+
+const realVideos: VideoItem[] = [
+  {
+    id: 'site-action-1',
+    title: 'Heavy Hydraulic Wall & Concrete Cutting Action',
+    method: 'Hydraulic Wall Saw + Water Cooling',
+    location: 'Major Infrastructure & Bridge Site',
+    src: '/videos/site-action-1.mp4',
+    description:
+      'Watch our heavy-duty diamond wall saw slicing cleanly through densely reinforced RCC concrete. Water suppression keeps the blade cool while virtually eliminating airborne dust.',
+    highlight: 'Zero Vibration & 100% Dust Controlled',
+  },
+  {
+    id: 'site-action-2',
+    title: 'Precision On-Site Diamond Core & Slab Cutting',
+    method: 'Diamond Core Rig & Floor Sawing',
+    location: 'Commercial & Industrial Project',
+    src: '/videos/site-action-2.mp4',
+    description:
+      'Real on-site execution showing disciplined operator control, rapid mobilization, and millimetre-accurate cutting without damaging surrounding structural reinforcement.',
+    highlight: 'Millimetre-Precise Structural Safety',
+  },
+  {
+    id: 'site-action-3',
+    title: 'Controlled RCC Wall & Parapet Opening Work',
+    method: 'VEREX Precision Diamond Saw',
+    location: 'Flyover & High-Altitude Execution',
+    src: '/videos/site-action-3.mp4',
+    description:
+      'High-altitude and confined-access concrete cutting delivered safely. Our operators follow strict RAMS procedures to ensure zero accidents and smooth-edged finishes.',
+    highlight: 'High-Altitude & Confined Access',
+  },
+]
 
 export function Videos() {
   return (
@@ -13,13 +56,13 @@ export function Videos() {
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary backdrop-blur-md">
               <Film className="h-3.5 w-3.5 text-primary" />
-              Official Video &amp; Reels Showcase
+              Official Live Site Videos
             </span>
             <h2 className="mt-5 text-balance font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Watch our diamond cutting <span className="text-primary">in live action</span>
+              Watch our diamond blades <span className="text-primary">in live action</span>
             </h2>
             <p className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg">
-              We believe real on-site work speaks louder than words. Watch our official live video footage directly from the field—showing vibration-free hydraulic wall sawing and precision core drilling across India.
+              We believe real field execution speaks louder than words. Watch our official on-site video clips showing precision hydraulic wall sawing, core drilling and controlled demolition across India.
             </p>
           </div>
 
@@ -31,7 +74,7 @@ export function Videos() {
               className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-lift transition-transform hover:-translate-y-0.5"
             >
               <InstagramIcon className="h-4 w-4" />
-              Follow &amp; Watch Reels (@siva.lingam.923519)
+              Watch More on Instagram (@siva.lingam.923519)
             </a>
             <a
               href={site.whatsappHref}
@@ -40,112 +83,75 @@ export function Videos() {
               className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/20"
             >
               <MessageCircle className="h-4 w-4 text-[#25D366]" />
-              Request Site Videos via WhatsApp
+              Request Video Quotation
             </a>
           </div>
         </div>
 
-        {/* Real Video Player & Reel Showcase Container */}
-        <Reveal delay={0.1}>
-          <div className="mt-12 grid gap-8 lg:grid-cols-12 items-center rounded-3xl border border-white/15 bg-white/5 p-6 backdrop-blur-xl sm:p-10 shadow-2xl">
-            
-            {/* Left Box: Embedded Reel Player / Direct Action Card */}
-            <div className="lg:col-span-6 flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-black/50 p-6 text-center shadow-inner aspect-[4/3] sm:aspect-[16/10] lg:aspect-square relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10 pointer-events-none" />
-              
-              {/* Animated Glow Background */}
-              <div className="absolute -inset-10 bg-primary/10 blur-3xl rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-              <div className="relative z-20 max-w-md mx-auto flex flex-col items-center">
-                <span className="grid h-20 w-20 place-items-center rounded-full bg-primary text-primary-foreground shadow-2xl ring-8 ring-white/15 transition-transform duration-500 group-hover:scale-110 group-hover:bg-white group-hover:text-primary">
-                  <Play className="h-8 w-8 fill-current ml-1" />
-                </span>
-
-                <span className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md">
-                  <Sparkles className="h-3 w-3 text-primary" /> Live On-Site Video Footage
-                </span>
-
-                <h3 className="mt-4 font-display text-xl sm:text-2xl font-bold text-white leading-tight">
-                  High-Altitude &amp; Precision Concrete Cutting Reel
-                </h3>
-                
-                <p className="mt-2.5 text-xs sm:text-sm text-white/70 leading-relaxed">
-                  Click below to watch the official video posted on our Instagram profile <strong className="text-white">@siva.lingam.923519</strong>.
-                </p>
-
-                <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-                  <a
-                    href={site.instagramHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-primary-foreground shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white hover:text-primary"
-                  >
-                    <InstagramIcon className="h-4.5 w-4.5" /> Watch Video Reel Now
-                  </a>
-                  <a
-                    href={site.whatsappHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-md transition-colors hover:bg-white/20"
-                  >
-                    <MessageCircle className="h-4 w-4 text-[#25D366]" /> Ask Demo
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Box: Why We Document Our Cuts */}
-            <div className="lg:col-span-6 flex flex-col justify-center space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 text-primary font-semibold text-sm">
-                <ShieldCheck className="h-5 w-5" /> Verified Field Footage
-              </div>
-
-              <h3 className="font-display text-2xl sm:text-3xl font-bold text-white leading-tight">
-                No mockups. No stock videos. Only genuine SRI Cutting field execution.
-              </h3>
-
-              <p className="text-sm sm:text-base text-white/75 leading-relaxed">
-                When you hire SRI Cutting Technologies, you get exactly the precision, safety, and specialized machinery shown in our official videos. Every video posted represents actual projects completed across South India and infrastructure sites nationwide.
-              </p>
-
-              <div className="space-y-3.5 border-t border-white/10 pt-6">
-                <div className="flex items-start gap-3">
-                  <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary/20 text-primary text-xs font-bold">1</span>
-                  <div>
-                    <h4 className="font-semibold text-white text-sm">Real Hydraulic Wall &amp; Wire Saws</h4>
-                    <p className="text-xs text-white/60 mt-0.5">High-torque diamond systems slicing through densely reinforced RCC without vibration.</p>
+        {/* 3 Real Video Players Grid */}
+        <Stagger className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {realVideos.map((v) => (
+            <StaggerItem key={v.id}>
+              <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/15 bg-white/5 shadow-2xl backdrop-blur-md transition-all duration-300 hover:border-primary/50 hover:bg-white/10">
+                {/* HTML5 Video Player */}
+                <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden bg-black">
+                  <video
+                    src={v.src}
+                    controls
+                    preload="metadata"
+                    playsInline
+                    className="h-full w-full object-cover"
+                  />
+                  {/* Top Badge */}
+                  <div className="absolute left-3 top-3 pointer-events-none">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-black/80 px-3 py-1 text-xs font-bold text-white backdrop-blur-md shadow-md border border-white/10">
+                      <Sparkles className="h-3 w-3 text-primary" /> {v.highlight}
+                    </span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary/20 text-primary text-xs font-bold">2</span>
+                {/* Content */}
+                <div className="flex flex-1 flex-col justify-between p-6">
                   <div>
-                    <h4 className="font-semibold text-white text-sm">Water-Suppressed Dust Control</h4>
-                    <p className="text-xs text-white/60 mt-0.5">Watch our clean cooling sprays keeping occupied hospitals and factories 100% dust-free.</p>
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-xs font-bold uppercase tracking-wider text-primary">
+                        {v.method}
+                      </span>
+                      <span className="flex items-center gap-1 text-[11px] font-medium text-white/70">
+                        <MapPin className="h-3 w-3 text-primary shrink-0" /> {v.location}
+                      </span>
+                    </div>
+                    <h3 className="mt-2 font-display text-lg sm:text-xl font-bold text-white leading-snug group-hover:text-primary transition-colors">
+                      {v.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-white/75">
+                      {v.description}
+                    </p>
                   </div>
-                </div>
 
-                <div className="flex items-start gap-3">
-                  <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary/20 text-primary text-xs font-bold">3</span>
-                  <div>
-                    <h4 className="font-semibold text-white text-sm">Disciplined PPE &amp; Safety Protocols</h4>
-                    <p className="text-xs text-white/60 mt-0.5">Certified operators operating machinery strictly under documented RAMS procedures.</p>
+                  <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-xs font-bold">
+                    <a
+                      href={site.instagramHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-white/90 transition-colors hover:text-primary"
+                    >
+                      <InstagramIcon className="h-4 w-4 text-primary" /> Reel Profile
+                    </a>
+                    <a
+                      href={`https://wa.me/918778760661?text=${encodeURIComponent(`Hi SRI Cutting Technologies, I saw your video "${v.title}" on the website. Please share quote/details for a similar requirement.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366] px-3.5 py-1.5 text-white shadow-sm transition-transform hover:scale-105"
+                    >
+                      <MessageCircle className="h-3.5 w-3.5" /> Ask Quote
+                    </a>
                   </div>
                 </div>
               </div>
-
-              <div className="pt-2">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"
-                >
-                  Need our team for your project? Request a Free Site Assessment →
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </Reveal>
+            </StaggerItem>
+          ))}
+        </Stagger>
 
         {/* Bottom Banner */}
         <div className="mt-14 flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur-md sm:flex-row sm:p-8">
