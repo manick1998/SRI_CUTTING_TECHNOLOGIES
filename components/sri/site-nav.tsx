@@ -8,17 +8,21 @@ import { cn } from '@/lib/utils'
 
 function Logo({ scrolled }: { scrolled: boolean }) {
   return (
-    <a href="/" className="flex items-center" aria-label={`${site.name} home`}>
+    <a
+      href="/"
+      aria-label={`${site.name} home`}
+      className={cn(
+        'group flex items-center justify-center rounded-2xl bg-white px-3.5 py-2 ring-1 ring-black/10 transition-all duration-300 sm:px-4 sm:py-2.5',
+        scrolled ? 'shadow-soft hover:shadow-lift hover:ring-primary/40' : 'shadow-lift hover:scale-[1.02]'
+      )}
+    >
       <Image
         src="/images/real/logo-mark.jpeg"
         alt="SRI Cutting Technologies"
-        width={627}
-        height={276}
+        width={520}
+        height={221}
         priority
-        className={cn(
-          'h-10 w-auto rounded-xl bg-white object-contain p-1.5 ring-1 ring-black/5 transition-shadow sm:h-11',
-          scrolled && 'shadow-soft',
-        )}
+        className="h-8 w-auto object-contain sm:h-11"
       />
     </a>
   )
@@ -51,7 +55,7 @@ export function SiteNav() {
           : 'border-b border-transparent bg-transparent',
       )}
     >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
         <Logo scrolled={scrolled} />
 
         <div className="hidden items-center gap-1 lg:flex">

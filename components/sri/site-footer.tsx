@@ -23,10 +23,20 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <a href="/" aria-label={`${site.name} home`} className="inline-flex rounded-lg bg-white p-1.5">
-              <Image src="/images/real/logo.jpeg" alt="SRI Cutting Technologies" width={627} height={446} className="h-12 w-auto object-contain" />
+            <a
+              href="/"
+              aria-label={`${site.name} home`}
+              className="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3.5 shadow-lift ring-1 ring-black/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
+            >
+              <Image
+                src="/images/real/logo.jpeg"
+                alt="SRI Cutting Technologies"
+                width={563}
+                height={297}
+                className="h-14 w-auto object-contain sm:h-16"
+              />
             </a>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
+            <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/70">
               Concrete cutting and controlled demolition services for residential, commercial and industrial requirements.
             </p>
           </div>
