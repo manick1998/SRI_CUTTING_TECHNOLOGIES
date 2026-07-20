@@ -1,17 +1,17 @@
 import { SiteNav } from '@/components/sri/site-nav'
 import { Hero } from '@/components/sri/hero'
 import { TrustBadges } from '@/components/sri/trust-badges'
-import { About } from '@/components/sri/about'
-import { WhyChoose } from '@/components/sri/why-choose'
+import { Videos } from '@/components/sri/videos'
+import { Projects } from '@/components/sri/projects'
 import { Services } from '@/components/sri/services'
 import { Calculator } from '@/components/sri/calculator'
-import { Videos } from '@/components/sri/videos'
+import { About } from '@/components/sri/about'
+import { Founder } from '@/components/sri/founder'
+import { WhyChoose } from '@/components/sri/why-choose'
+import { Testimonials } from '@/components/sri/testimonials'
 import { Industries } from '@/components/sri/industries'
 import { Process } from '@/components/sri/process'
 import { Equipment } from '@/components/sri/equipment'
-import { Projects } from '@/components/sri/projects'
-import { Testimonials } from '@/components/sri/testimonials'
-import { Founder } from '@/components/sri/founder'
 import { Safety } from '@/components/sri/safety'
 import { Benefits } from '@/components/sri/benefits'
 import { Faq } from '@/components/sri/faq'
@@ -28,17 +28,17 @@ export default function Page() {
       <main>
         <Hero />
         <TrustBadges />
+        <Videos />
+        <Projects />
+        <Services />
+        <Calculator />
         <About />
         <Founder />
         <WhyChoose />
-        <Services />
-        <Calculator />
-        <Videos />
+        <Testimonials />
         <Industries />
         <Process />
         <Equipment />
-        <Projects />
-        <Testimonials />
         <Safety />
         <Benefits />
         <Faq />

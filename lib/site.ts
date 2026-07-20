@@ -34,10 +34,10 @@ export const site = {
 } as const
 
 export const navLinks = [
-  { label: 'About', href: '/#about' },
-  { label: 'Founder', href: '/#founder' },
-  { label: 'Services', href: '/#services' },
   { label: 'Videos', href: '/#videos' },
   { label: 'Our Work', href: '/#projects' },
+  { label: 'Services', href: '/#services' },
+  { label: 'About', href: '/#about' },
+  { label: 'Founder', href: '/#founder' },
   { label: 'FAQ', href: '/#faq' },
 ] as const
