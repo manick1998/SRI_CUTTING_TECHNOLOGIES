@@ -62,10 +62,13 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.08 }}
-            className="mt-6 text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+            className="mt-6 text-balance font-display text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl"
           >
+            <span className="block text-primary font-black uppercase tracking-wide text-3xl sm:text-5xl lg:text-6xl mb-2">
+              SRI Cutting Technologies
+            </span>
             Precision Concrete Cutting.{' '}
-            <span className="text-primary">Zero-Damage</span> Demolition.
+            <span className="text-white">Zero-Damage Demolition.</span>
           </motion.h1>
 
           <motion.p
