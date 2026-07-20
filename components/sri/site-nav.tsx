@@ -2,20 +2,16 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
 import { Menu, Phone, X } from 'lucide-react'
 import { navLinks, site } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
-function Logo({ scrolled }: { scrolled: boolean }) {
+function Logo() {
   return (
     <a
       href="/"
       aria-label={`${site.name} home`}
-      className={cn(
-        'group flex items-center justify-center rounded-2xl bg-white px-3.5 py-2 ring-1 ring-black/10 transition-all duration-300 sm:px-4 sm:py-2.5',
-        scrolled ? 'shadow-soft hover:shadow-lift hover:ring-primary/40' : 'shadow-lift hover:scale-[1.02]'
-      )}
+      className="group flex items-center justify-center rounded-xl bg-white px-3 py-1.5 shadow-md ring-1 ring-black/10 transition-transform sm:px-4 sm:py-2 hover:scale-105"
     >
       <Image
         src="/images/real/logo-mark.jpeg"
@@ -23,7 +19,7 @@ function Logo({ scrolled }: { scrolled: boolean }) {
         width={520}
         height={221}
         priority
-        className="h-8 w-auto object-contain sm:h-11"
+        className="h-8 w-auto object-contain sm:h-10"
       />
     </a>
   )
@@ -32,14 +28,6 @@ function Logo({ scrolled }: { scrolled: boolean }) {
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const pathname = usePathname()
-
-  // Ensure page navigation starts precisely at the top (`load agumpothu top of the pagela irukanum`)
-  useEffect(() => {
-    if (typeof window !== 'undefined' && !window.location.hash) {
-      window.scrollTo(0, 0)
-    }
-  }, [pathname])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -65,7 +53,6 @@ export function SiteNav() {
       if (targetId) {
         if (typeof window !== 'undefined' && (window.location.pathname === '/' || href.startsWith('#'))) {
           e.preventDefault()
-          // If mobile menu drawer was open, wait 60ms for DOM height to settle after collapse
           setTimeout(() => {
             const el = document.getElementById(targetId)
             if (el) {
@@ -86,27 +73,23 @@ export function SiteNav() {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-all duration-300',
+        'fixed inset-x-0 top-0 z-50 transition-all duration-200 border-b',
         scrolled || open
-          ? 'border-b border-border/70 bg-background/90 backdrop-blur-xl shadow-soft'
-          : 'border-b border-transparent bg-transparent',
+          ? 'border-white/10 bg-steel/95 backdrop-blur-md shadow-lg'
+          : 'border-transparent bg-gradient-to-b from-steel/90 via-steel/60 to-transparent',
       )}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
-        <Logo scrolled={scrolled || open} />
+        {/* Fixed Top SRI Logo (`evlo scroll pannalum default-ah mela irukanum`) */}
+        <Logo />
 
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-1.5 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={(e) => handleAnchorClick(e, link.href)}
-              className={cn(
-                'rounded-full px-4 py-2 text-sm font-medium transition-colors',
-                scrolled
-                  ? 'text-foreground/70 hover:bg-secondary hover:text-foreground'
-                  : 'text-white/80 hover:bg-white/10 hover:text-white',
-              )}
+              className="rounded-full px-4 py-2 text-sm font-semibold text-white/85 transition-colors hover:bg-white/15 hover:text-white"
             >
               {link.label}
             </a>
@@ -116,66 +99,64 @@ export function SiteNav() {
         <div className="hidden items-center gap-3 lg:flex">
           <a
             href={site.phoneHref}
-            className={cn(
-              'flex items-center gap-2 text-sm font-semibold transition-colors',
-              scrolled ? 'text-foreground/80 hover:text-foreground' : 'text-white/90 hover:text-white',
-            )}
+            className="flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-primary"
           >
-            <Phone className="h-4 w-4 text-primary" />
+            <Phone className="h-4 w-4 text-primary shrink-0" />
             {site.phoneDisplay}
           </a>
           <a
             href="/#contact"
             onClick={(e) => handleAnchorClick(e, '/#contact')}
-            className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift"
+            className="rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
           >
             Get a Free Quote
           </a>
         </div>
 
+        {/* Fixed Top Menu Icon (`default-ah mela irukanum`) */}
         <button
           type="button"
-          className={cn(
-            'grid h-10 w-10 place-items-center rounded-lg border transition-colors lg:hidden',
-            scrolled || open ? 'border-border bg-card text-foreground' : 'border-white/20 bg-white/10 text-white',
-          )}
+          className="grid h-10 w-10 place-items-center rounded-lg border border-white/20 bg-white/10 text-white shadow-sm transition-colors hover:bg-white/20 lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? <X className="h-5 w-5 text-primary" /> : <Menu className="h-5 w-5" />}
         </button>
       </nav>
 
+      {/* Mobile Drawer */}
       {open && (
-        <div className="border-t border-border bg-background/95 backdrop-blur-xl lg:hidden animate-in fade-in duration-200">
-          <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
+        <div className="border-t border-white/10 bg-steel/98 backdrop-blur-xl lg:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col gap-1.5 px-4 py-5 sm:px-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleAnchorClick(e, link.href)}
-                className="rounded-lg px-4 py-3.5 text-base font-bold text-foreground hover:bg-secondary active:scale-[0.99] transition-all flex items-center justify-between"
+                className="flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-bold text-white/90 hover:bg-white/10 active:scale-[0.99] transition-all"
               >
                 <span>{link.label}</span>
-                <span className="text-xs text-muted-foreground">→</span>
+                <span className="text-xs text-white/50">→</span>
               </a>
             ))}
-            <a
-              href="/#contact"
-              onClick={(e) => handleAnchorClick(e, '/#contact')}
-              className="mt-3 rounded-full bg-primary px-5 py-3.5 text-center text-base font-bold text-primary-foreground shadow-soft active:scale-[0.98] transition-transform"
-            >
-              Get a Free Quote
-            </a>
-            <a
-              href={site.phoneHref}
-              onClick={() => setOpen(false)}
-              className="mt-1 flex items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-base font-bold text-foreground active:scale-[0.98] transition-transform"
-            >
-              <Phone className="h-4 w-4 text-primary" />
-              {site.phoneDisplay}
-            </a>
+            <div className="mt-3 grid grid-cols-2 gap-3 pt-3 border-t border-white/10">
+              <a
+                href={site.phoneHref}
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-xl bg-white/10 px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-white/20"
+              >
+                <Phone className="h-4 w-4 text-primary shrink-0" />
+                Call Direct
+              </a>
+              <a
+                href="/#contact"
+                onClick={(e) => handleAnchorClick(e, '/#contact')}
+                className="flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-bold text-primary-foreground shadow-soft transition-transform"
+              >
+                Free Quote
+              </a>
+            </div>
           </div>
         </div>
       )}
