@@ -82,7 +82,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-20 bg-background py-20 sm:py-28">
+    <section id="contact" className="scroll-mt-16 sm:scroll-mt-20 bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid overflow-hidden rounded-3xl border border-border shadow-lift lg:grid-cols-5">
           {/* Info panel */}

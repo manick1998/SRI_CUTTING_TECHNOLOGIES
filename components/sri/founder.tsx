@@ -29,7 +29,7 @@ const founderPillars = [
 
 export function Founder() {
   return (
-    <section id="founder" className="scroll-mt-20 bg-secondary/40 py-20 sm:py-28" aria-labelledby="founder-heading">
+    <section id="founder" className="scroll-mt-16 sm:scroll-mt-20 bg-secondary/40 py-20 sm:py-28" aria-labelledby="founder-heading">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Founder Photo & Badges */}

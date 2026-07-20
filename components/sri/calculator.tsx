@@ -33,7 +33,7 @@ export function Calculator() {
   const waText = `Hi SRI Cutting Technologies, I checked the Cost Calculator on your site:\n• Service: ${service}\n• Thickness/Spec: ${thickness}\n• Quantity/Scope: ${quantity}\n• Urgency: ${urgency}\n• Estimated Budget Bracket: ₹${est.min} - ₹${est.max}\nPlease review my scope and provide exact fixed quotation.`
 
   return (
-    <section id="calculator" className="scroll-mt-20 bg-background py-20 sm:py-28">
+    <section id="calculator" className="scroll-mt-16 sm:scroll-mt-20 bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Instant Scope Calculator"

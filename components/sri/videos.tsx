@@ -50,7 +50,7 @@ const realVideos: VideoItem[] = [
 
 export function Videos() {
   return (
-    <section id="videos" className="scroll-mt-20 bg-steel py-20 text-steel-foreground sm:py-28">
+    <section id="videos" className="scroll-mt-16 sm:scroll-mt-20 bg-steel py-20 text-steel-foreground sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>

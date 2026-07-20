@@ -11,7 +11,7 @@ const points = [
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-20 bg-background py-20 sm:py-28">
+    <section id="about" className="scroll-mt-16 sm:scroll-mt-20 bg-background py-20 sm:py-28">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
         <Reveal direction="right">
           <div className="relative grid grid-cols-2 gap-4 pb-8 sm:gap-6 items-stretch">
