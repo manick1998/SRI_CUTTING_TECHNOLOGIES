@@ -1,14 +1,16 @@
 /** @type {import('next').NextConfig} */
+const isNetlify = process.env.NETLIFY === 'true'
+
 const nextConfig = {
-  // Static export: the whole site is pre-rendered to /out at build time.
-  // This deploys as plain HTML/CSS/JS on Netlify and avoids the
-  // @netlify/plugin-nextjs "Failed assembling prerendered content" bug.
-  output: 'export',
+  // If building on Netlify (`NETLIFY=true`), export static HTML `/out`.
+  // If building on Vercel (or locally without Netlify flag), use standard Next.js build
+  // with Vercel Edge Image Optimization and blazing-fast SSG!
+  output: isNetlify ? 'export' : undefined,
   typescript: {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    unoptimized: isNetlify,
   },
 }
 

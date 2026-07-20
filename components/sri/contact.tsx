@@ -39,26 +39,32 @@ export function Contact() {
   const [waLink, setWaLink] = useState('')
   const formRef = useRef<HTMLFormElement>(null)
 
-  // Primary submit: capture the lead in Netlify Forms (real submission).
+  // Primary submit: works cleanly on both Vercel API and Netlify Forms.
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = e.currentTarget
     const data = new FormData(form)
     setWaLink(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(composeMessage(data))}`)
     try {
-      const body = new URLSearchParams()
-      data.forEach((value, key) => {
-        if (typeof value === 'string') body.append(key, value)
-      })
-      body.set('form-name', 'contact')
-      await fetch('/contact.html', {
+      // Send to Vercel API route directly
+      await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body.toString(),
+        body: data,
+      }).catch(async () => {
+        // Fallback for Netlify Forms
+        const body = new URLSearchParams()
+        data.forEach((value, key) => {
+          if (typeof value === 'string') body.append(key, value)
+        })
+        body.set('form-name', 'contact')
+        await fetch('/contact.html', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: body.toString(),
+        })
       })
     } catch {
-      // If Netlify capture is unavailable (e.g. local preview), the lead is
-      // still recoverable via the WhatsApp button shown in the success state.
+      // If API capture is unavailable, the lead is still recoverable via WhatsApp.
     }
     setSubmitted(true)
   }
@@ -177,9 +183,9 @@ export function Contact() {
                     href={waLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary"
+                    className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-[#25D366] px-7 py-4 text-sm font-bold text-white shadow-lift transition-all hover:scale-105 hover:bg-[#20bd5a]"
                   >
-                    <MessageCircle className="h-4 w-4 text-primary" /> Also send these details on WhatsApp
+                    <MessageCircle className="h-5 w-5" /> Click here to send these exact details on WhatsApp now
                   </a>
                 )}
                 <button
