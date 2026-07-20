@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Netlify Forms Detection Helper</title>
+</head>
+<body>
+  <!-- Netlify Build-time Form Scanner Helper -->
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="contact" />
+    <input name="bot-field" type="text" />
+    <input name="name" type="text" required />
+    <input name="phone" type="tel" required />
+    <input name="email" type="email" />
+    <select name="service" required>
+      <option value="Concrete Core Cutting">Concrete Core Cutting</option>
+      <option value="Wall Saw Cutting">Wall Saw Cutting</option>
+      <option value="Wire Saw Cutting">Wire Saw Cutting</option>
+      <option value="Slab / Floor Saw Cutting">Slab / Floor Saw Cutting</option>
+      <option value="Groove / Beam Cutting">Groove / Beam Cutting</option>
+      <option value="RCC Cutting">RCC Cutting</option>
+      <option value="Expansion Joint Cutting">Expansion Joint Cutting</option>
+      <option value="Concrete Breaking">Concrete Breaking</option>
+      <option value="Controlled Demolition">Controlled Demolition</option>
+      <option value="Industrial Demolition">Industrial Demolition</option>
+      <option value="Other / Not sure">Other / Not sure</option>
+    </select>
+    <input name="location" type="text" />
+    <textarea name="message"></textarea>
+  </form>
+</body>
+</html>

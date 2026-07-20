@@ -194,6 +194,30 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
+        <div hidden>
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <input name="bot-field" type="text" />
+            <input name="name" type="text" />
+            <input name="phone" type="tel" />
+            <input name="email" type="email" />
+            <select name="service">
+              <option value="Concrete Core Cutting">Concrete Core Cutting</option>
+              <option value="Wall Saw Cutting">Wall Saw Cutting</option>
+              <option value="Wire Saw Cutting">Wire Saw Cutting</option>
+              <option value="Slab / Floor Saw Cutting">Slab / Floor Saw Cutting</option>
+              <option value="Groove / Beam Cutting">Groove / Beam Cutting</option>
+              <option value="RCC Cutting">RCC Cutting</option>
+              <option value="Expansion Joint Cutting">Expansion Joint Cutting</option>
+              <option value="Concrete Breaking">Concrete Breaking</option>
+              <option value="Controlled Demolition">Controlled Demolition</option>
+              <option value="Industrial Demolition">Industrial Demolition</option>
+              <option value="Other / Not sure">Other / Not sure</option>
+            </select>
+            <input name="location" type="text" />
+            <textarea name="message"></textarea>
+          </form>
+        </div>
         {children}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>

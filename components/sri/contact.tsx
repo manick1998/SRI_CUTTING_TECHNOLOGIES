@@ -50,7 +50,7 @@ export function Contact() {
         if (typeof value === 'string') body.append(key, value)
       })
       body.set('form-name', 'contact')
-      await fetch('/', {
+      await fetch('/contact.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: body.toString(),
@@ -181,6 +181,7 @@ export function Contact() {
                   ref={formRef}
                   name="contact"
                   method="POST"
+                  action="/contact.html"
                   data-netlify="true"
                   netlify-honeypot="bot-field"
                   onSubmit={handleSubmit}
