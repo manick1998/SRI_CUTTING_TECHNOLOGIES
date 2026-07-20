@@ -45,27 +45,27 @@ export function Equipment() {
         </div>
 
         <Reveal direction="left">
-          <div className="relative grid gap-4 sm:grid-cols-2">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-lift">
+          <div className="relative grid gap-4 sm:grid-cols-2 items-stretch">
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-lift aspect-[4/5] w-full">
               <Image
                 src="/images/wire-saw-equipment.png"
                 alt="Advanced diamond wire saw machinery cutting a large concrete structure"
                 width={600}
                 height={750}
-                className="h-full w-full object-cover aspect-[4/5] hover:scale-105 transition-transform duration-500"
+                className="h-full w-full object-cover hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-x-3 bottom-3 rounded-2xl border border-white/15 bg-steel/90 p-3.5 backdrop-blur-md">
                 <p className="font-display text-base font-bold text-white">Diamond Wire System</p>
                 <p className="text-xs text-primary font-semibold">Unlimited depth &middot; zero vibration</p>
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-lift mt-4 sm:mt-8">
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-lift aspect-[4/5] w-full">
               <Image
                 src="/images/real/project-6.jpeg"
                 alt="SRI Cutting Technologies heavy hydraulic equipment setup on industrial project"
                 width={600}
                 height={750}
-                className="h-full w-full object-cover aspect-[4/5] hover:scale-105 transition-transform duration-500"
+                className="h-full w-full object-cover hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-x-3 bottom-3 rounded-2xl border border-white/15 bg-steel/90 p-3.5 backdrop-blur-md">
                 <p className="font-display text-base font-bold text-white">Heavy Wall &amp; Core Rigs</p>

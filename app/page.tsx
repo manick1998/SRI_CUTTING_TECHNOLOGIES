@@ -4,11 +4,13 @@ import { TrustBadges } from '@/components/sri/trust-badges'
 import { About } from '@/components/sri/about'
 import { WhyChoose } from '@/components/sri/why-choose'
 import { Services } from '@/components/sri/services'
+import { Calculator } from '@/components/sri/calculator'
 import { Videos } from '@/components/sri/videos'
 import { Industries } from '@/components/sri/industries'
 import { Process } from '@/components/sri/process'
 import { Equipment } from '@/components/sri/equipment'
 import { Projects } from '@/components/sri/projects'
+import { Testimonials } from '@/components/sri/testimonials'
 import { Founder } from '@/components/sri/founder'
 import { Safety } from '@/components/sri/safety'
 import { Benefits } from '@/components/sri/benefits'
@@ -30,11 +32,13 @@ export default function Page() {
         <Founder />
         <WhyChoose />
         <Services />
+        <Calculator />
         <Videos />
         <Industries />
         <Process />
         <Equipment />
         <Projects />
+        <Testimonials />
         <Safety />
         <Benefits />
         <Faq />

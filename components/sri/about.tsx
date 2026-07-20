@@ -14,23 +14,23 @@ export function About() {
     <section id="about" className="scroll-mt-20 bg-background py-20 sm:py-28">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
         <Reveal direction="right">
-          <div className="relative grid grid-cols-2 gap-4 pb-8 sm:gap-6">
-            <div className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
+          <div className="relative grid grid-cols-2 gap-4 pb-8 sm:gap-6 items-stretch">
+            <div className="relative overflow-hidden rounded-3xl border border-border shadow-lift aspect-[4/5] w-full">
               <Image
                 src="/images/real/site-work-2.jpeg"
                 alt="SRI Cutting Technologies operator performing wall saw cutting on flyover infrastructure"
                 width={600}
                 height={750}
-                className="h-full w-full object-cover aspect-[4/5] hover:scale-105 transition-transform duration-500"
+                className="h-full w-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
-            <div className="relative mt-8 overflow-hidden rounded-3xl border border-border shadow-lift sm:mt-12">
+            <div className="relative overflow-hidden rounded-3xl border border-border shadow-lift aspect-[4/5] w-full">
               <Image
                 src="/images/real/project-1.jpeg"
                 alt="SRI Cutting Technologies operator carrying out diamond core drilling on site"
                 width={600}
                 height={750}
-                className="h-full w-full object-cover aspect-[4/5] hover:scale-105 transition-transform duration-500"
+                className="h-full w-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-3.5 rounded-2xl border border-border bg-card/95 px-6 py-4 shadow-2xl backdrop-blur-md">
