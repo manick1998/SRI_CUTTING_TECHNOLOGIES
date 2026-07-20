@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import { Inter, Space_Grotesk } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import { SITE_URL, site } from '@/lib/site'
 import './globals.css'
 
@@ -219,6 +220,7 @@ export default function RootLayout({
           </form>
         </div>
         {children}
+        <Analytics />
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script
