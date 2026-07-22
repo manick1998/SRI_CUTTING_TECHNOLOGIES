@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { MapPin } from 'lucide-react'
 import { SectionHeading } from './section-heading'
 import { Stagger, StaggerItem } from './reveal'
@@ -11,6 +10,7 @@ const projects = [
     title: 'Rooftop Slab Breaking & Debris Removal',
     location: 'Terrace / Rooftop Site Work',
     desc: 'Fresh site photo showing controlled rooftop slab breaking with organised debris handling and safe team execution.',
+    priority: true,
   },
   {
     img: '/images/real/site-demolition-2.jpeg',
@@ -19,6 +19,7 @@ const projects = [
     title: 'Interior Floor Chipping & Concrete Breaking',
     location: 'Commercial / Industrial Interior',
     desc: 'Heavy concrete breaking carried out in a confined interior area with PPE, controlled handling and practical site discipline.',
+    priority: true,
   },
   {
     img: '/images/real/site-demolition-3.jpeg',
@@ -27,6 +28,7 @@ const projects = [
     title: 'Terrace Slab Opening & Block Removal',
     location: 'Residential / Commercial Terrace',
     desc: 'Clean slab opening work with cut concrete blocks removed carefully for modification and service access requirements.',
+    priority: true,
   },
   {
     img: '/images/real/site-demolition-4.jpeg',
@@ -35,6 +37,7 @@ const projects = [
     title: 'RCC Slab Cut-Out Finish',
     location: 'Building Modification Site',
     desc: 'Before-and-after style work proof showing accurate rectangular RCC opening and removed concrete section after execution.',
+    priority: true,
   },
   {
     img: '/images/real/site-work-2.jpeg',
@@ -116,7 +119,14 @@ export function Projects() {
             <StaggerItem key={p.title}>
               <article className="group overflow-hidden rounded-3xl border border-border bg-card shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift">
                 <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
-                  <Image src={p.img} alt={p.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img
+                    src={p.img}
+                    alt={p.alt}
+                    loading={p.priority ? 'eager' : 'lazy'}
+                    decoding="async"
+                    fetchPriority={p.priority ? 'high' : 'auto'}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
                   <span className="absolute left-4 top-4 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">{p.tag}</span>
                 </div>
                 <div className="p-6">
