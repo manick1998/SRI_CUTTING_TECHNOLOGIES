@@ -1,6 +1,5 @@
 import { MapPin } from 'lucide-react'
 import { SectionHeading } from './section-heading'
-import { Stagger, StaggerItem } from './reveal'
 
 const projects = [
   {
@@ -114,10 +113,9 @@ export function Projects() {
           title={<>See SRI Cutting Technologies in action</>}
           description="A selection of actual core cutting, floor sawing, wall-opening, rooftop demolition and industrial cutting work carried out by our team."
         />
-        <Stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p) => (
-            <StaggerItem key={p.title}>
-              <article className="group overflow-hidden rounded-3xl border border-border bg-card shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift">
+            <article key={p.title} className="group overflow-hidden rounded-3xl border border-border bg-card shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift">
                 <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
                   <img
                     src={p.img}
@@ -134,10 +132,9 @@ export function Projects() {
                   <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground"><MapPin className="h-3.5 w-3.5 text-primary" />{p.location}</p>
                   <p className="mt-3 text-sm leading-relaxed text-foreground/75">{p.desc}</p>
                 </div>
-              </article>
-            </StaggerItem>
+            </article>
           ))}
-        </Stagger>
+        </div>
       </div>
     </section>
   )
