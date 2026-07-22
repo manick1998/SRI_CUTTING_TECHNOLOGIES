@@ -5,6 +5,38 @@ import { Stagger, StaggerItem } from './reveal'
 
 const projects = [
   {
+    img: '/images/real/site-demolition-1.jpeg',
+    alt: 'SRI Cutting Technologies workers breaking rooftop concrete slab using demolition breakers',
+    tag: 'Controlled Demolition',
+    title: 'Rooftop Slab Breaking & Debris Removal',
+    location: 'Terrace / Rooftop Site Work',
+    desc: 'Fresh site photo showing controlled rooftop slab breaking with organised debris handling and safe team execution.',
+  },
+  {
+    img: '/images/real/site-demolition-2.jpeg',
+    alt: 'SRI Cutting Technologies operator using heavy breaker with safety helmet and reflective vest inside building site',
+    tag: 'Breaker Demolition',
+    title: 'Interior Floor Chipping & Concrete Breaking',
+    location: 'Commercial / Industrial Interior',
+    desc: 'Heavy concrete breaking carried out in a confined interior area with PPE, controlled handling and practical site discipline.',
+  },
+  {
+    img: '/images/real/site-demolition-3.jpeg',
+    alt: 'Terrace concrete slab opening and removed concrete blocks after controlled cutting work',
+    tag: 'Slab Opening',
+    title: 'Terrace Slab Opening & Block Removal',
+    location: 'Residential / Commercial Terrace',
+    desc: 'Clean slab opening work with cut concrete blocks removed carefully for modification and service access requirements.',
+  },
+  {
+    img: '/images/real/site-demolition-4.jpeg',
+    alt: 'Completed RCC slab rectangular opening and removed concrete block after cutting',
+    tag: 'RCC Cut-Out',
+    title: 'RCC Slab Cut-Out Finish',
+    location: 'Building Modification Site',
+    desc: 'Before-and-after style work proof showing accurate rectangular RCC opening and removed concrete section after execution.',
+  },
+  {
     img: '/images/real/site-work-2.jpeg',
     alt: 'SRI Cutting Technologies operator cutting reinforced concrete barrier on flyover with heavy diamond wall saw',
     tag: 'Wall Sawing',
@@ -77,7 +109,7 @@ export function Projects() {
         <SectionHeading
           eyebrow="Real Work. Real Results."
           title={<>See SRI Cutting Technologies in action</>}
-          description="A selection of actual core cutting, floor sawing, wall-opening and industrial cutting work carried out by our team."
+          description="A selection of actual core cutting, floor sawing, wall-opening, rooftop demolition and industrial cutting work carried out by our team."
         />
         <Stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p) => (

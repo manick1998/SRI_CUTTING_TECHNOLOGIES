@@ -3,7 +3,7 @@
 import { Film, MapPin, MessageCircle, Sparkles } from 'lucide-react'
 import { InstagramIcon } from '@/components/ui/instagram-icon'
 import { site } from '@/lib/site'
-import { Reveal, Stagger, StaggerItem } from './reveal'
+import { Stagger, StaggerItem } from './reveal'
 
 export type VideoItem = {
   id: string
@@ -46,6 +46,26 @@ const realVideos: VideoItem[] = [
       'High-altitude and confined-access concrete cutting delivered safely. Our operators follow strict RAMS procedures to ensure zero accidents and smooth-edged finishes.',
     highlight: 'High-Altitude & Confined Access',
   },
+  {
+    id: 'site-action-4',
+    title: 'Rooftop Concrete Breaking & Removal Work',
+    method: 'Breaker Demolition + Debris Control',
+    location: 'Terrace / Rooftop Site Work',
+    src: '/videos/site-action-4.mp4',
+    description:
+      'Fresh uploaded live site footage showing rooftop concrete breaking, controlled removal and safe work flow handled by the SRI Cutting Technologies team.',
+    highlight: 'Fresh Live Site Upload',
+  },
+  {
+    id: 'site-action-5',
+    title: 'On-Site Concrete Cutting & Demolition Progress',
+    method: 'Controlled Cutting + Site Execution',
+    location: 'Residential & Commercial Site',
+    src: '/videos/site-action-5.mp4',
+    description:
+      'Latest real work video added from the site, giving customers immediate reality feeling of our field team, machinery and practical execution quality.',
+    highlight: 'Real Site Progress Video',
+  },
 ]
 
 export function Videos() {
@@ -62,7 +82,7 @@ export function Videos() {
               Watch our diamond blades <span className="text-primary">in live action</span>
             </h2>
             <p className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg">
-              We believe real field execution speaks louder than words. Watch our official on-site video clips showing precision hydraulic wall sawing, core drilling and controlled demolition across India.
+              We believe real field execution speaks louder than words. Watch our official on-site video clips showing precision hydraulic wall sawing, core drilling, slab cutting and controlled demolition across India.
             </p>
           </div>
 
@@ -88,7 +108,7 @@ export function Videos() {
           </div>
         </div>
 
-        {/* 3 Real Video Players Grid */}
+        {/* Real Video Players Grid */}
         <Stagger className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {realVideos.map((v) => (
             <StaggerItem key={v.id}>
